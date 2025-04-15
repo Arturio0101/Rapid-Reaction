@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fast Reaction - Multiplayer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Game "Fast Reaction"</h1>
+        
+        <!-- Форма для ввода имени -->
+        <div id="nameInputContainer">
+            <label for="playerName">Input your name:</label>
+            <input type="text" id="playerName" placeholder="Your name">
+            <button id="joinLobbyButton">Join the lobby </button>
+        </div>
+
+        <!-- Игровой статус и кнопки -->
+        <p id="status">Wait for other players...</p>
+        <button id="startGameButton" disabled>Start a new game</button>
+        <button id="reactionButton" style="display:none;" disabled>Click me!</button>
+        
+        <!-- Таблица для отображения игроков и их побед -->
+        <div id="playersContainer">
+            <h3>Players online</h3>
+            <table id="playersTable">
+                <thead>
+                    <tr>
+                        <th>Player name</th>
+                        <th>Wins</th>
+                    </tr>
+                </thead>
+                <tbody id="playersList">
+                    <!-- Список игроков будет добавляться здесь динамически -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Контейнер для конфетти -->
+    <div id="confetti-container"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

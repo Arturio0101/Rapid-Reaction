@@ -1,0 +1,178 @@
+
+/* Общий стиль */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Brawl Stars Font', Arial, sans-serif;
+    background-color: #1b1932;
+    margin: 0;
+    overflow: hidden;
+     touch-action: manipulation;
+  -ms-touch-action: manipulation;
+  user-select: none;
+}
+
+/* Контейнер игры */
+.game-container {
+    text-align: center;
+    padding: 20px;
+    width: 380px;
+    margin: 0 auto;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #3b3595, #6c63ff);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-size: 28px;
+    color: #ffd700;
+    text-shadow: 2px 2px #452f8a;
+}
+
+/* Статус игры */
+#status {
+    font-size: 20px;
+    color: #ffeaa7;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* Форма ввода имени */
+#nameInputContainer label {
+    font-size: 18px;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#playerName {
+    padding: 12px;
+    width: 80%;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 2px solid #ffcc00;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Кнопка "Войти в лобби" */
+#joinLobbyButton,
+#startGameButton {
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    background-color: #ff5733;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 10px;
+}
+
+#joinLobbyButton:hover,
+#startGameButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.3);
+}
+/* Убираем анимации и добавляем серый цвет для неактивной кнопки */
+#startGameButton:disabled {
+    background-color: #888888; /* Серый цвет для недоступного состояния */
+    color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Убираем hover-эффекты для неактивной кнопки */
+#startGameButton:hover:disabled {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Кнопка для быстрой реакции */
+#reactionButton {
+    width: 140px;
+    height: 140px;
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #ff2f92;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#reactionButton:disabled {
+    background-color: #888;
+    cursor: not-allowed;
+}
+
+#reactionButton:hover:enabled {
+    background-color: #ff006e;
+    transform: scale(1.05);
+}
+
+/* Таблица игроков */
+#playersContainer {
+    margin-top: 20px;
+    color: #ffeaa7;
+}
+
+#playersTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#playersTable th, #playersTable td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #3b3595;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+#playersTable th {
+    background-color: #6c63ff;
+    font-weight: bold;
+}
+
+/* Конфетти */
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.confetti {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #ffd700;
+    opacity: 0.9;
+    border-radius: 50%;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+/* Отключаем прокрутку для мобильных устройств */
+@media (max-width: 768px) {
+    body {
+        overflow: hidden;
+    }
+}
+
+.game-container, #reactionButton {
+    touch-action: manipulation;
+}
